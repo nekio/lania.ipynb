@@ -1,0 +1,7 @@
+Este es un archivo 
+de texto
+que sirve para
+ejemplo en la
+libreta 4
+del dia 2
+del curso de ipython

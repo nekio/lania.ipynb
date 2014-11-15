@@ -1,0 +1,3 @@
+"Mi primer texto desde ipynb" 
+"Esta linea es mi segundo texto..." 
+"Ahora el trabajo continua en la rama master..." 
