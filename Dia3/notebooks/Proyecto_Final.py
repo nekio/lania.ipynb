@@ -11,22 +11,22 @@
 ##                Sinesio Ivan Carrillo Heredia
 
 
-# In[116]:
+# In[2]:
 
 import android
 
 
-# In[117]:
+# In[3]:
 
 droide = android.Android()
 
 
-# In[118]:
+# In[4]:
 
 import time
 
 
-# In[122]:
+# In[25]:
 
 droide.dialogCreateAlert("¿Desea obtener su ubicación")
 droide.dialogSetPositiveButtonText("Si")
@@ -59,30 +59,40 @@ if response.has_key("which"):
       lo = n['longitude']
       address = droide.geocode(la, lo).result
         
-    droide.stopLocating()        
+    droide.stopLocating()   
+    
+    noEncontrado = "Dato no encontrado"
     
     try:
+        droide.ttsSpeak("Direccion")
         direccion=address[0]["thoroughfare"]
         droide.ttsSpeak(direccion)
     except BaseException as e:
+        droide.ttsSpeak(noEncontrado)
         acum += 1
         print(e)
         
     try:
+        droide.ttsSpeak("Localidad")
         droide.ttsSpeak(address[0]["locality"])
     except BaseException as e:
+        droide.ttsSpeak(noEncontrado)
         acum += 1
         print(e)
     
     try:
+        droide.ttsSpeak("Area")
         droide.ttsSpeak(address[0]["admin_area"])
     except BaseException as e:
+        droide.ttsSpeak(noEncontrado)
         acum += 1
         print(e)
     
     try:
-        droide.ttsSpeak(address[0]["country_name"])            
+        droide.ttsSpeak("País")
+        droide.ttsSpeak(address[0]["country_name"])
     except BaseException as e:
+        droide.ttsSpeak(noEncontrado)
         acum += 1
         print(e)
     
